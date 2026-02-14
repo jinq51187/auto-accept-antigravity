@@ -1,0 +1,52 @@
+{
+  "name": "antigravity-auto-accept",
+  "displayName": "Antigravity Auto-Accept",
+  "description": "Automatically accepts AI suggestions, executions, and confirmations in Antigravity.",
+  "version": "0.0.2",
+  "publisher": "qPos",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "antigravity-auto-accept.toggle",
+        "title": "Antigravity: Toggle Auto-Accept"
+      }
+    ],
+    "configuration": {
+      "title": "Antigravity Auto-Accept",
+      "properties": {
+        "antigravity-auto-accept.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Whether the auto-accept agent is enabled."
+        },
+        "antigravity-auto-accept.pollingInterval": {
+          "type": "number",
+          "default": 300,
+          "description": "The interval (in ms) to poll for accept buttons."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "echo 'No compilation needed for pure JS'",
+    "watch": "echo 'No watch needed for pure JS'",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "echo 'No linting configured'",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.75.0",
+    "@types/node": "16.x"
+  }
+}
