@@ -1,0 +1,57 @@
+{
+    "name": "auto-accept-keyboard",
+    "displayName": "Auto Accept (Keyboard)",
+    "description": "Auto-accept agent changes using keyboard shortcut simulation",
+    "version": "1.2.5",
+    "publisher": "qPos",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/qPos/auto-accept-keyboard"
+    },
+    "dependencies": {
+        "ws": "^8.13.0"
+    },
+    "devDependencies": {
+        "@vscode/vsce": "^3.2.1",
+        "eslint": "^8.57.0",
+        "typescript": "^5.4.2"
+    },
+    "engines": {
+        "vscode": "^1.75.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onStartupFinished"
+    ],
+    "main": "./extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "auto-accept-keyboard.toggle",
+                "title": "Auto Accept (Keyboard): Toggle ON/OFF"
+            }
+        ],
+        "configuration": {
+            "title": "Auto Accept Keyboard",
+            "properties": {
+                "auto-accept-keyboard.enabled": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Enable auto-accept via keyboard simulation"
+                },
+                "auto-accept-keyboard.interval": {
+                    "type": "number",
+                    "default": 500,
+                    "description": "Polling interval in milliseconds"
+                },
+                "auto-accept-keyboard.shortcut": {
+                    "type": "string",
+                    "default": "ctrl+shift+enter",
+                    "description": "Keyboard shortcut to simulate (e.g., 'ctrl+shift+enter', 'ctrl+k ctrl+a')"
+                }
+            }
+        }
+    }
+}
